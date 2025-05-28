@@ -4,11 +4,9 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
-// import 'react-native-reanimated/lib/reanimated2/js-reanimated';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components/native';
 import { darkTheme, lightTheme } from '../src/styles/theme';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
