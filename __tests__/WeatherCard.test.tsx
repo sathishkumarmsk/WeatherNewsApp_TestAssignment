@@ -2,7 +2,6 @@ import { render } from '@testing-library/react-native';
 import React from 'react';
 import WeatherCard from '../src/components/WeatherCard';
 
-// Mock the components used in WeatherCard
 jest.mock('../src/components/LoadingSpinner', () => {
   const React = require('react');
   const { Text } = require('react-native');

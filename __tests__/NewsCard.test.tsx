@@ -3,7 +3,6 @@ import { render } from '@testing-library/react-native';
 import NewsCard from '../src/components/NewsCard';
 import { NewsArticle } from '../src/types';
 
-// Mock the Linking module
 jest.mock('react-native', () => {
   const rn = jest.requireActual('react-native');
   return {
@@ -33,7 +32,6 @@ describe('NewsCard', () => {
   it('renders basic news article information', () => {
     const { getByText } = render(<NewsCard article={mockNewsArticle} />);
     
-    // Test that the basic information is rendered
     expect(getByText('Test News Article')).toBeTruthy();
   });
 });

@@ -26,7 +26,6 @@ jest.mock('expo-linking', () => ({
     getAllKeys: jest.fn(),
   }));
   
-  // Mock the Ionicons component
   jest.mock('@expo/vector-icons', () => ({
     Ionicons: ({ name, size, color, ...props }) => {
       const React = require('react');
@@ -35,7 +34,6 @@ jest.mock('expo-linking', () => ({
     },
   }));
   
-  // Mock the useColorScheme hook and other React Native modules
   jest.mock('react-native', () => {
     const reactNative = jest.requireActual('react-native');
     return {
@@ -46,7 +44,6 @@ jest.mock('expo-linking', () => ({
         openURL: jest.fn(),
         canOpenURL: jest.fn().mockResolvedValue(true),
       },
-      // Mock Animated to avoid NativeAnimatedHelper issues
       Animated: {
         ...reactNative.Animated,
         timing: () => ({
@@ -63,7 +60,6 @@ jest.mock('expo-linking', () => ({
     };
   });
   
-  // Mock expo-router
   jest.mock('expo-router', () => ({
     router: {
       push: jest.fn(),
@@ -80,17 +76,14 @@ jest.mock('expo-linking', () => ({
     },
   }));
   
-  // Mock expo-status-bar
   jest.mock('expo-status-bar', () => ({
     StatusBar: 'StatusBar',
   }));
   
-  // Mock styled-components
   jest.mock('styled-components/native', () => {
     const React = require('react');
     const { View, Text, TouchableOpacity, Image } = require('react-native');
     
-    // Create a basic theme for testing
     const theme = {
       colors: {
         primary: '#007AFF',
@@ -121,7 +114,6 @@ jest.mock('expo-linking', () => ({
       },
     };
     
-    // Create a simple styled function that passes props and theme
     const styled = {
       View: () => ({ children, ...props }) => <View {...props}>{children}</View>,
       Text: () => ({ children, ...props }) => <Text {...props}>{children}</Text>,
@@ -136,7 +128,6 @@ jest.mock('expo-linking', () => ({
     };
   });
   
-  // Global console mock to reduce noise
   global.console = {
     ...console,
     warn: jest.fn(),
